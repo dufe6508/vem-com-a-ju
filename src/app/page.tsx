@@ -114,7 +114,7 @@ export default function Home() {
       <main className="font-sans">
 
         {/* ══ HERO ═══════════════════════════════════════════════════════════ */}
-        <section id="inicio" className="bg-[#F5F7FB] pt-20 pb-4">
+        <section id="inicio">
           <HeroSection />
         </section>
 
