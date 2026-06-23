@@ -4,7 +4,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollFade from "@/components/ScrollFade";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const HERO_IMG = "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1920&q=85";
 const WA_BASE  = "https://wa.me/55?text=";
 const WA_GERAL = WA_BASE + encodeURIComponent("Olá! Tenho interesse nas excursões da Vem com a Ju!");
 const WA_ARRAIAL = WA_BASE + encodeURIComponent("Oi Ju! Quero saber mais sobre Arraial do Cabo 2027.");
@@ -115,24 +114,7 @@ export default function Home() {
       <main className="font-sans">
 
         {/* ══ HERO ═══════════════════════════════════════════════════════════ */}
-        <section id="inicio" className="relative overflow-hidden bg-[#0e0a06]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={HERO_IMG}
-            alt="Rio de Janeiro ao entardecer"
-            className="absolute inset-0 w-full h-full object-cover object-[center_30%] select-none"
-            fetchPriority="high"
-          />
-          {/* Mobile gradient: escuro embaixo */}
-          <div
-            className="absolute inset-0 md:hidden"
-            style={{ background: "linear-gradient(to top, rgba(10,8,4,0.96) 0%, rgba(10,8,4,0.68) 42%, rgba(10,8,4,0.18) 68%, rgba(10,8,4,0.04) 100%)" }}
-          />
-          {/* Desktop gradient: diagonal esquerda */}
-          <div
-            className="absolute inset-0 hidden md:block"
-            style={{ background: "linear-gradient(108deg, rgba(10,8,4,0.96) 0%, rgba(10,8,4,0.80) 30%, rgba(10,8,4,0.34) 56%, rgba(10,8,4,0.06) 82%)" }}
-          />
+        <section id="inicio" className="bg-[#F5F7FB] pt-20 pb-4">
           <HeroSection />
         </section>
 
