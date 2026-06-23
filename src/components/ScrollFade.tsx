@@ -31,7 +31,7 @@ export default function ScrollFade({
       className={className}
       initial={initial}
       animate={inView ? { opacity: 1, y: 0, x: 0 } : initial}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay }}
     >
       {children}
     </motion.div>
