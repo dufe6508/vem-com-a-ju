@@ -92,7 +92,7 @@ export default function Home() {
     <>
       <Header />
 
-      <main className="font-sans">
+      <main className="font-sans grain">
 
         {/* ── HERO ─────────────────────────────────────────── */}
         <section
@@ -131,25 +131,40 @@ export default function Home() {
         </section>
 
         {/* ── DIFERENCIAIS ─────────────────────────────────── */}
-        <section className="py-20 bg-white" id="incluso">
+        {/* Layout editorial numerado — quebra o padrão 3-cards-iguais */}
+        <section className="py-24 bg-[#FBF9F7]" id="incluso">
           <div className="max-w-6xl mx-auto px-5 sm:px-8">
-            <ScrollFade className="text-center mb-14">
-              <p className="text-[#F27C2E] font-semibold text-sm uppercase tracking-widest mb-2">
+
+            <ScrollFade className="mb-16">
+              <p className="text-[#F27C2E] font-semibold text-sm tracking-[0.12em] uppercase mb-3">
                 Por que viajar com a Ju?
               </p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-                Você em boas mãos
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#1C1917] leading-[1.1] tracking-tight">
+                Você em<br className="hidden sm:block" /> boas mãos
               </h2>
             </ScrollFade>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div className="flex flex-col divide-y divide-[#E8E4DF]">
               {diferenciais.map((d, i) => (
-                <ScrollFade key={d.title} delay={i * 0.12}>
-                  <div className="flex flex-col items-start gap-4 p-8 rounded-2xl bg-[#F5F5F5] h-full">
-                    <div className="w-14 h-14 rounded-xl bg-[#1B4F8A] flex items-center justify-center">
+                <ScrollFade key={d.title} delay={i * 0.1}>
+                  <div className="flex flex-col sm:flex-row items-start gap-6 py-10 group">
+                    {/* Número editorial */}
+                    <span className="text-[4rem] font-extrabold leading-none text-[#1B4F8A]/10 tracking-tighter select-none w-20 shrink-0 group-hover:text-[#1B4F8A]/20 transition-colors duration-300">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {/* Ícone */}
+                    <div className="w-12 h-12 rounded-2xl bg-[#1B4F8A] flex items-center justify-center shrink-0 mt-1">
                       {d.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">{d.title}</h3>
-                    <p className="text-gray-600 text-base leading-relaxed">{d.desc}</p>
+                    {/* Texto */}
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-[#1C1917] mb-2 tracking-tight">
+                        {d.title}
+                      </h3>
+                      <p className="text-[#6B6460] text-base leading-relaxed max-w-xl">
+                        {d.desc}
+                      </p>
+                    </div>
                   </div>
                 </ScrollFade>
               ))}
@@ -158,19 +173,19 @@ export default function Home() {
         </section>
 
         {/* ── PACOTE ───────────────────────────────────────── */}
-        <section id="pacotes" className="py-20 bg-[#F5F5F5]">
+        <section id="pacotes" className="py-24 bg-[#F5F2EE]">
           <div className="max-w-6xl mx-auto px-5 sm:px-8">
-            <ScrollFade className="text-center mb-12">
-              <p className="text-[#F27C2E] font-semibold text-sm uppercase tracking-widest mb-2">
-                Próxima Excursão
+            <ScrollFade className="mb-12">
+              <p className="text-[#F27C2E] font-semibold text-sm tracking-[0.12em] uppercase mb-3">
+                Próxima excursão
               </p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-                Pacote em Destaque
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#1C1917] leading-[1.1] tracking-tight">
+                Pacote em destaque
               </h2>
             </ScrollFade>
 
             <ScrollFade delay={0.1}>
-              <div className="bg-white rounded-3xl overflow-hidden shadow-sm">
+              <div className="bg-[#FBF9F7] rounded-3xl overflow-hidden shadow-azul">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
 
                   {/* Foto */}
@@ -181,18 +196,18 @@ export default function Home() {
                       alt="Arraial do Cabo — Caribe Brasileiro"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     <div className="absolute top-5 left-5">
-                      <span className="bg-[#F27C2E] text-white font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wide">
+                      <span className="bg-[#F27C2E] text-white font-bold text-xs px-3 py-1.5 rounded-lg uppercase tracking-[0.08em]">
                         Próxima viagem
                       </span>
                     </div>
-                    <div className="absolute bottom-5 left-5 right-5">
-                      <p className="text-white font-extrabold text-3xl leading-tight drop-shadow-lg">
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <p className="text-white font-extrabold text-3xl leading-tight drop-shadow-lg tracking-tight">
                         Arraial do Cabo
                       </p>
-                      <p className="text-white/85 font-medium text-lg drop-shadow">
-                        Caribe Brasileiro
+                      <p className="text-white/80 font-medium text-base mt-1">
+                        Caribe Brasileiro · Mar/2027
                       </p>
                     </div>
                   </div>
@@ -201,20 +216,20 @@ export default function Home() {
                   <div className="p-8 lg:p-10 flex flex-col gap-6">
 
                     {/* Datas */}
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="flex-1 bg-[#F5F5F5] rounded-xl px-5 py-4">
-                        <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-1">
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <div className="flex-1 bg-[#F5F2EE] rounded-2xl px-5 py-4">
+                        <p className="text-xs tracking-[0.1em] uppercase text-[#9B948F] font-semibold mb-1">
                           Saída
                         </p>
-                        <p className="text-gray-900 font-bold text-base">
+                        <p className="text-[#1C1917] font-bold text-base">
                           24/03/2027 às 19h30
                         </p>
                       </div>
-                      <div className="flex-1 bg-[#F5F5F5] rounded-xl px-5 py-4">
-                        <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-1">
+                      <div className="flex-1 bg-[#F5F2EE] rounded-2xl px-5 py-4">
+                        <p className="text-xs tracking-[0.1em] uppercase text-[#9B948F] font-semibold mb-1">
                           Retorno
                         </p>
-                        <p className="text-gray-900 font-bold text-base">
+                        <p className="text-[#1C1917] font-bold text-base">
                           28/03/2027 às 16h00
                         </p>
                       </div>
@@ -222,15 +237,12 @@ export default function Home() {
 
                     {/* Incluso */}
                     <div>
-                      <p className="text-gray-900 font-bold text-base mb-3">
-                        O que está incluído:
+                      <p className="text-[#1C1917] font-semibold text-sm tracking-[0.06em] uppercase mb-4">
+                        O que está incluído
                       </p>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {inclusos.map((item) => (
-                          <li
-                            key={item}
-                            className="flex items-start gap-2 text-gray-700 text-base"
-                          >
+                          <li key={item} className="flex items-start gap-2.5 text-[#4A4440] text-base">
                             <CheckIcon />
                             {item}
                           </li>
@@ -239,43 +251,42 @@ export default function Home() {
                     </div>
 
                     {/* Preços */}
-                    <div className="border-t border-gray-100 pt-5 grid grid-cols-2 gap-4">
+                    <div className="border-t border-[#E8E4DF] pt-5 grid grid-cols-2 gap-4">
                       <div>
-                        <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-1">
+                        <p className="text-xs tracking-[0.1em] uppercase text-[#9B948F] font-semibold mb-1">
                           Adulto
                         </p>
-                        <p className="text-[#F27C2E] font-extrabold text-2xl">
+                        <p className="text-[#F27C2E] font-extrabold text-2xl tracking-tight">
                           R$ 1.450
                         </p>
-                        <p className="text-gray-500 text-sm mt-0.5">
+                        <p className="text-[#9B948F] text-sm mt-0.5">
                           7x de R$ 207,15
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-1">
+                        <p className="text-xs tracking-[0.1em] uppercase text-[#9B948F] font-semibold mb-1">
                           Criança (6–11 anos)
                         </p>
-                        <p className="text-[#F27C2E] font-extrabold text-2xl">
+                        <p className="text-[#F27C2E] font-extrabold text-2xl tracking-tight">
                           R$ 990
                         </p>
-                        <p className="text-gray-500 text-sm mt-0.5">
+                        <p className="text-[#9B948F] text-sm mt-0.5">
                           7x de R$ 141,50
                         </p>
                       </div>
                     </div>
 
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-[#9B948F]">
                       Cartão de crédito: até{" "}
-                      <strong className="text-gray-700">10x sem juros</strong>.
+                      <strong className="text-[#4A4440]">10x sem juros</strong>.
                       Reservas mediante pagamento de entrada.
                     </p>
 
-                    {/* Botão */}
                     <a
                       href={WHATSAPP_ARRAIAL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-3 bg-[#2E7D52] text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-[#256043] transition-colors"
+                      className="flex items-center justify-center gap-3 bg-[#2E7D52] text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-[#256043] active:scale-[0.98] transition-all duration-200 shadow-[0_8px_24px_rgba(46,125,82,0.3)]"
                     >
                       <WhatsAppIcon size={22} />
                       Reservar pelo WhatsApp
@@ -319,18 +330,18 @@ export default function Home() {
       </main>
 
       {/* ── FOOTER ───────────────────────────────────────── */}
-      <footer className="bg-[#1B4F8A] text-white py-12">
+      <footer className="bg-[#1C1917] text-white py-14">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
-            <div className="text-center md:text-left">
-              <p className="font-extrabold text-2xl tracking-tight mb-1">
-                VEM COM A JU
+          <div className="flex flex-col md:flex-row items-start justify-between gap-10">
+            <div>
+              <p className="font-extrabold text-2xl tracking-tight mb-2">
+                Vem com a Ju
               </p>
-              <p className="text-white/60 text-base">
-                Colecionando histórias, eternizando momentos.
+              <p className="text-white/45 text-sm leading-relaxed max-w-xs">
+                Colecionando histórias,<br />eternizando momentos.
               </p>
             </div>
-            <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            <nav className="flex flex-wrap gap-x-10 gap-y-3">
               {[
                 { label: "Início", href: "#inicio" },
                 { label: "Pacotes", href: "#pacotes" },
@@ -340,15 +351,16 @@ export default function Home() {
                 <a
                   key={l.href}
                   href={l.href}
-                  className="text-white/70 hover:text-white text-base transition-colors"
+                  className="text-white/50 hover:text-white text-sm transition-colors"
                 >
                   {l.label}
                 </a>
               ))}
             </nav>
           </div>
-          <div className="border-t border-white/15 mt-10 pt-8 text-center text-white/50 text-sm">
-            © {new Date().getFullYear()} Vem com a Ju. Todos os direitos reservados.
+          <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-white/30 text-xs">
+            <span>© {new Date().getFullYear()} Vem com a Ju. Todos os direitos reservados.</span>
+            <span>Feito com carinho para quem ama viajar</span>
           </div>
         </div>
       </footer>
