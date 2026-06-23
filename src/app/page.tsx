@@ -97,11 +97,19 @@ export default function Home() {
         {/* ── HERO ─────────────────────────────────────────── */}
         <section
           id="inicio"
-          className="relative min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-center"
+          className="relative bg-cover bg-center overflow-hidden"
           style={{ backgroundImage: `url('${HERO_IMG}')` }}
         >
-          {/* Gradient overlay: mais escuro no centro/baixo para legibilidade */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/70" />
+          {/* Mobile: escuro embaixo (texto), transparente em cima (foto aparece) */}
+          <div
+            className="absolute inset-0 md:hidden"
+            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.52) 48%, rgba(0,0,0,0.06) 100%)" }}
+          />
+          {/* Desktop: escuro à esquerda (texto), transparente à direita (foto aparece) */}
+          <div
+            className="absolute inset-0 hidden md:block"
+            style={{ background: "linear-gradient(105deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.60) 38%, rgba(0,0,0,0.18) 70%, rgba(0,0,0,0.04) 100%)" }}
+          />
 
           <HeroSection />
 
